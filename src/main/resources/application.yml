@@ -1,0 +1,45 @@
+#spring.application.name=user-information
+#
+#spring.datasource.url=jdbc:postgresql://localhost:5432/user_information_db
+#spring.datasource.username=postgres
+#spring.datasource.password=postgres
+#
+#spring.jpa.hibernate.ddl-auto=update
+#spring.jpa.show-sql=true
+#spring.jpa.properties.hibernate.format_sql=true
+#
+#spring.jpa.properties.hibernate.dialect=org.hibernate.dialect.PostgreSQLDialect
+#jwt.secret=your-very-long-secret-key-with-at-least-32-characters
+#jwt.expiration=86400000
+
+spring:
+  application:
+    name: user-information
+
+  datasource:
+    url: jdbc:postgresql://localhost:5432/user_information_db
+    username: postgres
+    password: postgres
+    driver-class-name: org.postgresql.Driver
+
+  jpa:
+    hibernate:
+      ddl-auto: update
+
+    show-sql: true
+
+    properties:
+      hibernate:
+        format_sql: true
+
+  jackson:
+    serialization:
+      indent-output: true
+
+jwt:
+  secret: yourSuperSecretKeyThatMustBeAtLeast32CharactersLong
+  access-token-expiration: 300000
+  refresh-token-expiration: 604800000
+
+server:
+  port: 8080

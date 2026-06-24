@@ -16,16 +16,15 @@ spring:
   application:
     name: user-information
 
-  spring:
-    datasource:
-      url: jdbc:postgresql://thomas.proxy.rlwy.net:58871/railway
-      username: postgres
-      password: QJXXAurckMSnuVAxvftXjDDczcixpKiy
-      driver-class-name: org.postgresql.Driver
+  datasource:
+    url: ${SPRING_DATASOURCE_URL:jdbc:postgresql://localhost:5432/user_information_db}
+    username: ${SPRING_DATASOURCE_USERNAME:postgres}
+    password: ${SPRING_DATASOURCE_PASSWORD:postgres}
+    driver-class-name: org.postgresql.Driver
 
   jpa:
     hibernate:
-      ddl-auto: update
+      ddl-auto: ${SPRING_JPA_HIBERNATE_DDL_AUTO:update}
     show-sql: true
     properties:
       hibernate:
@@ -37,9 +36,9 @@ spring:
       indent-output: true
 
 jwt:
-  secret: yourSuperSecretKeyThatMustBeAtLeast32CharactersLong
-  access-token-expiration: 300000
-  refresh-token-expiration: 604800000
+  secret: ${JWT_SECRET:a3f8c2d1e9b7f4a6c8d2e1f3b5a7c9d1e3f5b7a9c1d3e5f7b9a1c3d5e7f9b1}
+  access-token-expiration: ${JWT_ACCESS_TOKEN_EXPIRATION:300000}
+  refresh-token-expiration: ${JWT_REFRESH_TOKEN_EXPIRATION:604800000}
 
 server:
-  port: 8080
+  port: ${PORT:8080}

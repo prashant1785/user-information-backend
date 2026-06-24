@@ -16,21 +16,21 @@ spring:
   application:
     name: user-information
 
-  datasource:
-    url: jdbc:postgresql://localhost:5432/user_information_db
-    username: postgres
-    password: postgres
-    driver-class-name: org.postgresql.Driver
+  spring:
+    datasource:
+      url: jdbc:postgresql://thomas.proxy.rlwy.net:58871/railway
+      username: postgres
+      password: QJXXAurckMSnuVAxvftXjDDczcixpKiy
+      driver-class-name: org.postgresql.Driver
 
   jpa:
     hibernate:
       ddl-auto: update
-
     show-sql: true
-
     properties:
       hibernate:
         format_sql: true
+        dialect: org.hibernate.dialect.PostgreSQLDialect
 
   jackson:
     serialization:

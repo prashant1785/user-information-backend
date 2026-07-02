@@ -1,0 +1,103 @@
+#spring:
+#  application:
+#    name: user-information
+#
+#  datasource:
+#    url: ${SPRING_DATASOURCE_URL:jdbc:postgresql://localhost:5432/user_information_db}
+#    username: ${SPRING_DATASOURCE_USERNAME:postgres}
+#    password: ${SPRING_DATASOURCE_PASSWORD:postgres}
+#    driver-class-name: org.postgresql.Driver
+#
+#  jpa:
+#    hibernate:
+#      ddl-auto: ${SPRING_JPA_HIBERNATE_DDL_AUTO:update}
+#    show-sql: true
+#    properties:
+#      hibernate:
+#        format_sql: true
+#        dialect: org.hibernate.dialect.PostgreSQLDialect
+#
+#  jackson:
+#    serialization:
+#      indent-output: true
+#
+#  mail: # ← must be under spring, not jwt
+#    host: smtp.gmail.com
+#    port: 465
+#    username: ${MAIL_USERNAME:domkawaleprashant1785@gmail.com}
+#    password: ${MAIL_PASSWORD:xnulrrpmtesvejvf}
+#    properties:
+#      mail:
+#        smtp:
+#          auth: true
+#          ssl:
+#            enable: true               # ← change starttls to ssl
+#            connectiontimeout: 5000
+#            timeout: 5000
+#            writetimeout: 5000
+#
+#jwt:
+#  secret: ${JWT_SECRET:a3f8c2d1e9b7f4a6c8d2e1f3b5a7c9d1e3f5b7a9c1d3e5f7b9a1c3d5e7f9b1}
+#  access-token-expiration: ${JWT_ACCESS_TOKEN_EXPIRATION:300000}
+#  refresh-token-expiration: ${JWT_REFRESH_TOKEN_EXPIRATION:604800000}
+#
+#otp:
+#  expiration-minutes: 5
+#
+#server:
+#  port: ${PORT:8080}
+
+
+
+
+
+
+spring:
+  application:
+    name: user-information
+
+  datasource:
+    url: ${SPRING_DATASOURCE_URL:jdbc:postgresql://localhost:5432/user_information_db}
+    username: ${SPRING_DATASOURCE_USERNAME:postgres}
+    password: ${SPRING_DATASOURCE_PASSWORD:postgres}
+    driver-class-name: org.postgresql.Driver
+
+  jpa:
+    hibernate:
+      ddl-auto: ${SPRING_JPA_HIBERNATE_DDL_AUTO:update}
+    show-sql: true
+    properties:
+      hibernate:
+        format_sql: true
+        dialect: org.hibernate.dialect.PostgreSQLDialect
+
+  jackson:
+    serialization:
+      indent-output: true
+
+  mail: # ← same level as datasource, jpa, jackson
+    host: smtp.sendgrid.net
+    port: 587
+    username: apikey
+    password: ${SENDGRID_API_KEY}
+    properties:
+      mail:
+        smtp:
+          auth: true
+          starttls:
+            enable: true
+            required: true
+          connectiontimeout: 5000
+          timeout: 5000
+          writetimeout: 5000
+
+jwt:
+  secret: ${JWT_SECRET:a3f8c2d1e9b7f4a6c8d2e1f3b5a7c9d1e3f5b7a9c1d3e5f7b9a1c3d5e7f9b1}
+  access-token-expiration: ${JWT_ACCESS_TOKEN_EXPIRATION:300000}
+  refresh-token-expiration: ${JWT_REFRESH_TOKEN_EXPIRATION:604800000}
+
+otp:
+  expiration-minutes: 5
+
+server:
+  port: ${PORT:8080}

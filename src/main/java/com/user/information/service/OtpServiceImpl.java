@@ -20,8 +20,8 @@ public class OtpServiceImpl implements OtpService {
     private final OtpRepository otpRepository;
     private final JavaMailSender mailSender;
 
-//    @Value("${spring.mail.username}")
-//    private String mailUsername;
+    @Value("${spring.mail.username}")
+    private String mailUsername;
 
     @Value("${otp.expiration-minutes:5}")
     private int expirationMinutes;
